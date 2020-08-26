@@ -6,7 +6,7 @@ permalink: use-methods-with-curl.html
 folder: like-developer
 ---
 
-Наш [пример API прогноза погоды](using-api-scenario.html) не позволяет использовать что-либо, кроме метода GET, поэтому для этого упражнения, чтобы использовать другие методы с curl, мы будем использовать [API-интерфейс petstore](http://petstore.swagger.io/). На самом деле мы не будем использовать интерфейс Swagger ([о чем мы поговорим позже](introduction-openapi-and-swagger.html)), на данный момент нам просто нужен API, с помощью которого мы можем создавать, обновлять и удалять контент.
+Наш [пример API прогноза погоды](using-api-scenario.html) не позволяет использовать что-либо, кроме метода GET, поэтому для этого упражнения, чтобы использовать другие методы с curl, мы будем использовать [API-интерфейс petstore](https://petstore.swagger.io/). На самом деле мы не будем использовать интерфейс Swagger ([о чем мы поговорим позже](introduction-openapi-and-swagger.html)), на данный момент нам просто нужен API, с помощью которого мы можем создавать, обновлять и удалять контент.
 
 В этом разделе мы создадим нового питомца с помощью Petstore API, обновим его, получим id питомца, удалим его, а затем попытаемся получить удаленного питомца.
 
@@ -56,7 +56,7 @@ folder: like-developer
 После того, как вы перешли в Терминале/командной строке в каталог с сохраненным JSON файлом, создаем нашего питомца следующим curl запросом:
 
 ```javascript
-curl -X POST --header "Content-Type: application/json" --header "Accept: application/json" -d @mypet.json "http://petstore.swagger.io/v2/pet"
+curl -X POST --header "Content-Type: application/json" --header "Accept: application/json" -d @mypet.json "https://petstore.swagger.io/v2/pet"
 ```
 
 `Content-Type` указывает тип контента, представленного в теле запроса. `Accept` указывает тип контента, который мы примем в ответе.
@@ -82,7 +82,7 @@ curl -X POST --header "Content-Type: application/json" --header "Accept: applica
 - Вместо метода POST используем метод PUT для обновления имени (в остальном запрос не меняется):
 
 ```javascript
-curl -X PUT --header "Content-Type: application/json" --header "Accept: application/json" -d @mypet.json "http://petstore.swagger.io/v2/pet"
+curl -X PUT --header "Content-Type: application/json" --header "Accept: application/json" -d @mypet.json "https://petstore.swagger.io/v2/pet"
 ```
 
 В ответе будет новое имя питомца.
@@ -97,7 +97,7 @@ curl -X PUT --header "Content-Type: application/json" --header "Accept: applicat
 - В команде curl заменим `51231236` на id своего питомца и узнаем информацию о нем:
 
 ```javascript
-curl -X GET --header "Accept: application/json" "http://petstore.swagger.io/v2/pet/51231236"
+curl -X GET --header "Accept: application/json" "https://petstore.swagger.io/v2/pet/51231236"
 ```
 
 В ответе будет информация о нашем питомце:
@@ -136,12 +136,12 @@ curl -X GET --header "Accept: application/json" "http://petstore.swagger.io/v2/p
 Для удаления питомца используем метод DELETE. В примере ниже меняем `5123123` на id своего питомца:
 
 ```javascript
-curl -X DELETE --header "Accept: application/json" "http://petstore.swagger.io/v2/pet/891654"
+curl -X DELETE --header "Accept: application/json" "https://petstore.swagger.io/v2/pet/891654"
 ```
 Теперь проверим, получилось удалить питомца. Используем метод GET в этой же команде
 
 ```javascript
-curl -X GET --header "Accept: application/json" "http://petstore.swagger.io/v2/pet/891654"
+curl -X GET --header "Accept: application/json" "https://petstore.swagger.io/v2/pet/891654"
 ```
 
 Ответ будет примерно таким:
@@ -164,7 +164,7 @@ curl -X GET --header "Accept: application/json" "http://petstore.swagger.io/v2/p
 В диалоговом окне выбираем вкладку "Paste Raw Text" и вводим команду:
 
 ```javascript
-curl -X GET --header "Accept: application/json" "http://petstore.swagger.io/v2/pet/891654"
+curl -X GET --header "Accept: application/json" "https://petstore.swagger.io/v2/pet/891654"
 ```
 
 Указываем свой Id питомца и проверяем, что нет лишних пробелов.
